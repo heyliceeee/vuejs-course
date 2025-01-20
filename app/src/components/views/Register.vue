@@ -44,11 +44,11 @@ export default {
             >
                 <!-- Campo Nome -->
                 <a-form-item
-                    label="Name"
-                    name="name"
-                    :rules="[ { required: true, message: 'Please enter name!' } ]"
+                    label="Username"
+                    name="username"
+                    :rules="[ { required: true, message: 'Please enter username!' } ]"
                 >
-                    <a-input v-model:value="formData.name" placeholder="Enter your name" />
+                    <a-input v-model:value="formData.name" placeholder="Enter your username" />
                 </a-form-item>
 
                 <!-- Campo E-mail -->
