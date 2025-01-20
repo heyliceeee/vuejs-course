@@ -1,10 +1,19 @@
 <script>
 import { ref } from "vue";
 import '@/styles/app.css';
+import router from "@/router/routers.js";
 
 
 export default {
     name: 'Home',
+    mounted()
+    {
+        let username = localStorage.getItem('username');
+
+        if(!username){ //se nao lembra do user
+            router.push({name: 'Register'});  // vai para o Register
+        }
+    }
 }
 </script>
 

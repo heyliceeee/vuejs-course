@@ -34,9 +34,9 @@ export default {
 
                 isAccountCreated.value = response.status === 201;
 
-                if(isAccountCreated.value){
-                    // vai para o home
-                    await router.push({name: 'Home'});
+                if(isAccountCreated.value){ //criar a conta com sucesso
+                    localStorage.setItem("username", formData.username) // guarda username
+                    await router.push({name: 'Home'});  // vai para o home
                 }
 
             } catch (error) {
@@ -51,6 +51,15 @@ export default {
         };
 
         return { form, formData, onSubmit, isAccountCreated };
+    },
+
+    mounted()
+    {
+        let username = localStorage.getItem('username');
+
+        if(username){ //se lembra-se do user
+            router.push({name: 'Home'});  // vai para o home
+        }
     },
 
     data() {
