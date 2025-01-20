@@ -1,54 +1,83 @@
 <script>
 import { ref } from "vue";
 import logo from '@/assets/logo.png';
+import axios from "axios";
+
+const baseUrl = 'http://localhost:3000';
 
 export default {
+    name: 'Register',
     setup() {
         const form = ref(null);
         const formData = ref({
-            name: "",
+            username: "",
             email: "",
             password: "",
         });
+        const isAccountCreated = ref(null); // conta foi criada com sucesso?
+
+        /**
+         *  create account in API
+         * @param formData form data
+         * @returns {Promise<axios.AxiosResponse<any>>} status code
+         **/
+        const createAccount = async (formData) => {
+            try {
+                const response = await axios.post(baseUrl + "/user", {
+                    id: 4,
+                    username: formData.username,
+                    email: formData.email,
+                    password: formData.password,
+                });
+
+                isAccountCreated.value = response.status === 201;
+
+                console.log("isAccountCreated.value: ", isAccountCreated.value);
+
+            } catch (error) {
+                console.error("Error creating account:", error);
+                isAccountCreated.value = false; // Alerta de erro
+            }
+        };
 
         const onSubmit = () => {
             console.log("Form submitted with data:", formData.value);
-            alert("Form sent successfully!");
+            createAccount(formData.value); // chama a função para criar a conta
         };
 
-        return { form, formData, onSubmit };
+        return { form, formData, onSubmit, isAccountCreated };
     },
 
     data() {
         return {
-            // Caminho para a imagem
-            logo,
+            logo, // Caminho para a imagem
         };
     },
 };
 </script>
 
 <template>
-<!--    <a-row gutter="16">-->
         <div style="max-width: 400px; margin: auto; padding: 20px;">
+
+            <!-- Exibe alertas de sucesso ou erro -->
+            <a-alert message="Create Account successfully!" type="success" show-icon closable v-if="isAccountCreated" />
+            <a-alert message="Account not created successfully!" type="error" show-icon closable v-if="!isAccountCreated" />
+
+            <br />
+
             <div style="text-align: center; margin-bottom: 30px;">
                 <a-typography-title>Register</a-typography-title>
                 <a-image :src="logo" alt="Logo" :preview="{ visible: false }" width="100px"/>
             </div>
 
-            <a-form
-                :form="form"
-                @finish="onSubmit"
-                layout="vertical"
-                :validate-on="['change', 'blur']"
-            >
+            <a-form :form="form" @finish="onSubmit" layout="vertical" :validate-on="['change', 'blur']">
                 <!-- Campo Nome -->
                 <a-form-item
                     label="Username"
                     name="username"
                     :rules="[ { required: true, message: 'Please enter username!' } ]"
                 >
-                    <a-input v-model:value="formData.name" placeholder="Enter your username" />
+                    <a-input v-model:value="formData.username" placeholder="Enter your username" />
                 </a-form-item>
 
                 <!-- Campo E-mail -->
@@ -80,9 +109,7 @@ export default {
 
                 <!-- Botão Submeter -->
                 <a-form-item>
-                    <a-button type="primary" html-type="submit" block>
-                        Create Account
-                    </a-button>
+                    <a-button type="primary" v-on:click="onSubmit" html-type="submit" block>Create Account</a-button>
                 </a-form-item>
             </a-form>
         </div>

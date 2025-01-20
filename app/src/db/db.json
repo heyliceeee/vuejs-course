@@ -11,6 +11,54 @@
       "username": "Bruno",
       "email": "bruno@example.com",
       "password": "abc@123"
+    },
+    {
+      "id": 4,
+      "username": "alice",
+      "email": "alicedias2002@hotmail.com",
+      "password": "HUb7k.KF3mU5UVP"
+    },
+    {
+      "id": 4,
+      "username": "aaa",
+      "email": "aaa",
+      "password": "HUb7k.KF3mU5UVP"
+    },
+    {
+      "id": 4,
+      "username": "aaa",
+      "email": "8200118.estg.ipp@gmail.com",
+      "password": "HUb7k.KF3mU5UVP"
+    },
+    {
+      "id": 4,
+      "username": "sss",
+      "email": "marlenebessa1979@hotmail.com",
+      "password": "HUb7k.KF3mU5UVP"
+    },
+    {
+      "id": 4,
+      "username": "a",
+      "email": "a",
+      "password": "HUb7k.KF3mU5UVP"
+    },
+    {
+      "id": 4,
+      "username": "es",
+      "email": "ss",
+      "password": "HUb7k.KF3mU5UVP"
+    },
+    {
+      "id": 4,
+      "username": "rd",
+      "email": "ee",
+      "password": "HUb7k.KF3mU5UVP"
+    },
+    {
+      "id": 4,
+      "username": "alicedias11",
+      "email": "8200118.estg.ipp@gmail.com",
+      "password": "HUb7k.KF3mU5UVP"
     }
   ]
 }
