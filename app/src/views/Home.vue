@@ -2,10 +2,13 @@
 import { ref } from "vue";
 import '@/styles/app.css';
 import router from "@/router/routers.js";
-
+import Header from "../components/Header.vue";
 
 export default {
     name: 'Home',
+    components: {
+        Header
+    },
     mounted()
     {
         let username = localStorage.getItem('username');
@@ -18,8 +21,12 @@ export default {
 </script>
 
 <template>
+    <Header />
+
+    <br/>
+
     <div class="center-container" style="margin-bottom: 30px; margin-right: -50px; background-color: #2c3e50">
-      <a-typography-title>`Welcome back, user}!`</a-typography-title>
+      <a-typography-title>Welcome back, user</a-typography-title>
     </div>
 </template>
 
