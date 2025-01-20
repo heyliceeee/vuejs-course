@@ -2,6 +2,8 @@
 import { ref } from "vue";
 import logo from '@/assets/logo.png';
 import axios from "axios";
+import '@/styles/app.css';
+import router from "@/router/routers.js";
 
 const baseUrl = 'http://localhost:3000';
 
@@ -32,7 +34,10 @@ export default {
 
                 isAccountCreated.value = response.status === 201;
 
-                console.log("isAccountCreated.value: ", isAccountCreated.value);
+                if(isAccountCreated.value){
+                    // vai para o home
+                    await router.push({name: 'Home'});
+                }
 
             } catch (error) {
                 console.error("Error creating account:", error);
@@ -57,8 +62,8 @@ export default {
 </script>
 
 <template>
-        <div style="max-width: 400px; margin: auto; padding: 20px;">
-
+    <div class="center-container">
+        <div style="margin: auto; ">
             <!-- Exibe alertas de sucesso ou erro -->
             <a-alert message="Create Account successfully!" type="success" show-icon closable v-if="isAccountCreated" />
             <a-alert message="Account not created successfully!" type="error" show-icon closable v-if="!isAccountCreated" />
@@ -113,11 +118,8 @@ export default {
                 </a-form-item>
             </a-form>
         </div>
+    </div>
 </template>
 
 <style scoped>
-/* Adiciona espaçamentos extras entre os elementos */
-.p-grid {
-    gap: 1rem;
-}
 </style>

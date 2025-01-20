@@ -1,0 +1,9 @@
+/* Centraliza horizontal e verticalmente */
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Ocupa a altura total do ecrã */
+    margin-left: 4px;
+    margin-right: -140px;
+}
