@@ -89,6 +89,12 @@
       "username": "aaaaa",
       "email": "8200118.estg.ipp@gmail.com",
       "password": "HUb7k.KF3mU5UVP"
+    },
+    {
+      "id": 4,
+      "username": "Alice",
+      "email": "alice@example.com",
+      "password": "HUb7k.KF3mU5UVP"
     }
   ]
 }
