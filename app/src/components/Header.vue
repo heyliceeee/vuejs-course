@@ -16,14 +16,33 @@ export default {
         ]);
 
         const current = ref("Home"); // Estado atual do menu
+        const isModalVisible = ref(false); // Controla a visibilidade do modal
 
         // Função chamada ao clicar
         const onClick = (e) => {
-            console.log('click ', e);
-            current.value = e.key; // Atualiza o estado
+            if (e.key === "Logout") {
+                isModalVisible.value = true; // Exibe o modal para confirmação de logout
+            } else {
+                current.value = e.key; // Atualiza o estado para outros itens
+            }
         };
 
-        return { items, current, onClick, logo};
+          // Funções para o modal
+          const handleOk = () => {
+              console.log("Logout confirmado");
+              isModalVisible.value = false;
+
+              //retirar o username do local storage
+              localStorage.clear();
+              router.push({name: "Login"});
+          };
+
+          const handleCancel = () => {
+              console.log("Logout cancelado");
+              isModalVisible.value = false;
+          };
+
+        return { items, current, onClick, logo, isModalVisible, handleOk, handleCancel};
   },
 };
 </script>
@@ -42,6 +61,16 @@ export default {
                 {{ item.label }}
             </a-menu-item>
         </a-menu>
+
+        <!-- Modal de Confirmação -->
+        <a-modal
+            v-model:visible="isModalVisible"
+            title="Confirm Logout"
+            @ok="handleOk"
+            @cancel="handleCancel"
+        >
+            <p>Are you sure you want to log out?</p>
+        </a-modal>
     </div>
 
 </template>
