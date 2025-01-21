@@ -1,5 +1,5 @@
 <script>
-import { ref } from "vue";
+import {ref} from "vue";
 import logo from '@/assets/logo.png';
 import axios from "axios";
 import '@/styles/app.css';
@@ -33,7 +33,7 @@ export default {
 
                 isAccountCreated.value = response.status === 201;
 
-                if(isAccountCreated.value){ //criar a conta com sucesso
+                if (isAccountCreated.value) { //criar a conta com sucesso
                     await router.push({name: 'Login'});  // vai para o login
                 }
 
@@ -48,7 +48,7 @@ export default {
             createAccount(formData.value); // chama a função para criar a conta
         };
 
-        return { form, formData, onSubmit, isAccountCreated };
+        return {form, formData, onSubmit, isAccountCreated};
     },
 
     data() {
@@ -63,10 +63,11 @@ export default {
     <div class="center-container">
         <div style="margin: auto; ">
             <!-- Exibe alertas de erro -->
-            <a-alert message="Create Account successfully!" type="success" show-icon closable v-if="isAccountCreated" />
-            <a-alert message="Account not created successfully!" type="error" show-icon closable v-if="!isAccountCreated" />
+            <a-alert message="Create Account successfully!" type="success" show-icon closable v-if="isAccountCreated"/>
+            <a-alert message="Account not created successfully!" type="error" show-icon closable
+                     v-if="!isAccountCreated"/>
 
-            <br />
+            <br/>
 
             <div style="text-align: center; margin-bottom: 30px;">
                 <a-typography-title>Register</a-typography-title>
@@ -76,37 +77,37 @@ export default {
             <a-form :form="form" @finish="onSubmit" layout="vertical" :validate-on="['change', 'blur']">
                 <!-- Campo Nome -->
                 <a-form-item
-                    label="Username"
-                    name="username"
-                    :rules="[ { required: true, message: 'Please enter username!' } ]"
+                        label="Username"
+                        name="username"
+                        :rules="[ { required: true, message: 'Please enter username!' } ]"
                 >
-                    <a-input v-model:value="formData.username" placeholder="Enter your username" />
+                    <a-input v-model:value="formData.username" placeholder="Enter your username"/>
                 </a-form-item>
 
                 <!-- Campo E-mail -->
                 <a-form-item
-                    label="E-mail"
-                    name="email"
-                    :rules="[
+                        label="E-mail"
+                        name="email"
+                        :rules="[
           { required: true, message: 'Please enter your email!' },
           { type: 'email', message: 'Please enter a valid email!' }
         ]"
                 >
                     <a-input
-                        v-model:value="formData.email"
-                        placeholder="Digite seu e-mail"
+                            v-model:value="formData.email"
+                            placeholder="Digite seu e-mail"
                     />
                 </a-form-item>
 
                 <!-- Campo Senha -->
                 <a-form-item
-                    label="Password"
-                    name="password"
-                    :rules="[ { required: true, message: 'Please enter password!' } ]"
+                        label="Password"
+                        name="password"
+                        :rules="[ { required: true, message: 'Please enter password!' } ]"
                 >
                     <a-input-password
-                        v-model:value="formData.password"
-                        placeholder="Enter your password"
+                            v-model:value="formData.password"
+                            placeholder="Enter your password"
                     />
                 </a-form-item>
 

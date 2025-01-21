@@ -1,123 +1,33 @@
 {
   "user": [
     {
-      "id": 1,
       "username": "Alice",
-      "email": "alice@example.com",
-      "password": "abc@123"
-    },
-    {
-      "id": 2,
-      "username": "Bruno",
-      "email": "bruno@example.com",
-      "password": "abc@123"
-    },
-    {
-      "id": 4,
-      "username": "alice",
-      "email": "alicedias2002@hotmail.com",
-      "password": "HUb7k.KF3mU5UVP"
-    },
-    {
-      "id": 4,
-      "username": "aaa",
-      "email": "aaa",
-      "password": "HUb7k.KF3mU5UVP"
-    },
-    {
-      "id": 4,
-      "username": "aaa",
-      "email": "8200118.estg.ipp@gmail.com",
-      "password": "HUb7k.KF3mU5UVP"
-    },
-    {
-      "id": 4,
-      "username": "sss",
-      "email": "marlenebessa1979@hotmail.com",
-      "password": "HUb7k.KF3mU5UVP"
-    },
-    {
-      "id": 4,
-      "username": "a",
-      "email": "a",
-      "password": "HUb7k.KF3mU5UVP"
-    },
-    {
-      "id": 4,
-      "username": "es",
-      "email": "ss",
-      "password": "HUb7k.KF3mU5UVP"
-    },
-    {
-      "id": 4,
-      "username": "rd",
-      "email": "ee",
-      "password": "HUb7k.KF3mU5UVP"
-    },
-    {
-      "id": 4,
-      "username": "alicedias11",
-      "email": "8200118.estg.ipp@gmail.com",
-      "password": "HUb7k.KF3mU5UVP"
-    },
-    {
-      "id": 4,
-      "username": "aaaaaaaaa",
-      "email": "marlenebessa1979@hotmail.com",
-      "password": "HUb7k.KF3mU5UVP"
-    },
-    {
-      "id": 4,
-      "username": "aaaaaaaaaaaaaaaaaaa",
-      "email": "heyliceeee@gmail.com",
-      "password": "HUb7k.KF3mU5UVP"
-    },
-    {
-      "id": 4,
-      "username": "aaaaaaaaaaa",
-      "email": "8200118@estg.ipp.pt",
-      "password": "HUb7k.KF3mU5UVP"
-    },
-    {
-      "id": 4,
-      "username": "aaaaaaaa",
-      "email": "aaaaaaaaa",
-      "password": "HUb7k.KF3mU5UVP"
-    },
-    {
-      "id": 4,
-      "username": "aaaaa",
-      "email": "8200118.estg.ipp@gmail.com",
-      "password": "HUb7k.KF3mU5UVP"
-    },
-    {
-      "id": 4,
-      "username": "Alice",
-      "email": "alice@example.com",
-      "password": "HUb7k.KF3mU5UVP"
+      "email": "ma@example.com",
+      "password": "abc@123",
+      "id": "1"
     }
   ],
   "restaurant": [
     {
-      "id": 1,
-      "name": "The Gourmet Kitchen",
-      "address": "123 Main Street, New York, NY",
-      "rating": 4.5,
-      "cuisine": "Italian",
-      "priceRange": "$$$",
+      "name": "a-name",
+      "address": "a-adress",
+      "rating": 1,
+      "cuisine": "a-cuisine",
+      "priceRange": "$$$$",
       "isOpen": true,
-      "contactNumber": "+1 555-1234",
+      "contactNumber": "+1 234-567",
       "tags": [
-        "Fine Dining",
-        "Romantic",
-        "Reservation Required"
-      ]
+        "SEAFOOD",
+        "AUTHENTIC",
+        "ROMANTIC"
+      ],
+      "id": "1"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Burger Palace",
       "address": "456 Elm Street, Los Angeles, CA",
-      "rating": 4.0,
+      "rating": 4,
       "cuisine": "American",
       "priceRange": "$",
       "isOpen": false,
@@ -128,7 +38,7 @@
       ]
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Sushi World",
       "address": "789 Oak Avenue, San Francisco, CA",
       "rating": 4.8,
@@ -141,6 +51,19 @@
         "Authentic",
         "High Quality"
       ]
+    },
+    {
+      "name": "ab",
+      "address": "a",
+      "rating": 0,
+      "cuisine": "a",
+      "priceRange": "$",
+      "isOpen": false,
+      "contactNumber": "a",
+      "tags": [
+        "a"
+      ],
+      "id": "4"
     }
   ]
 }
