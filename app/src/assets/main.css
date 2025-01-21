@@ -1,12 +1,5 @@
 @import './base.css';
 
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  font-weight: normal;
-}
-
 a,
 .green {
   text-decoration: none;
@@ -21,15 +14,19 @@ a,
   }
 }
 
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
+/* Estilos para todos os tamanhos de tela */
+body {
+  /*display: flex;*/
+  place-items: center; /* Centraliza horizontal e verticalmente */
+  margin: 0; /* Remove margens padrão do body */
+  min-height: 100vh; /* Garante que ocupa a altura total da tela */
+}
 
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
-  }
+#app {
+  display: grid;
+  grid-template-columns: 1fr; /* Layout de duas colunas */
+  padding: 0 2rem; /* Espaçamento nas laterais */
+  max-width: 2379px; /* Largura máxima */
+  margin: 0 auto; /* Centraliza horizontalmente */
+  font-weight: normal;
 }

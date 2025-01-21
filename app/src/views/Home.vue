@@ -21,12 +21,14 @@ export default {
 </script>
 
 <template>
-    <Header />
+    <div>
+        <Header />
 
-    <br/>
+        <br/>
 
-    <div class="center-container" style="margin-bottom: 30px; margin-right: -50px; background-color: #2c3e50">
-      <a-typography-title>Welcome back, user</a-typography-title>
+        <div class="center-container" style="background-color: #2c3e50">
+            <a-typography-title>Welcome back, user</a-typography-title>
+        </div>
     </div>
 </template>
 
