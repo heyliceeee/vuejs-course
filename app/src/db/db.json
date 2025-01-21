@@ -96,5 +96,51 @@
       "email": "alice@example.com",
       "password": "HUb7k.KF3mU5UVP"
     }
+  ],
+  "restaurant": [
+    {
+      "id": 1,
+      "name": "The Gourmet Kitchen",
+      "address": "123 Main Street, New York, NY",
+      "rating": 4.5,
+      "cuisine": "Italian",
+      "priceRange": "$$$",
+      "isOpen": true,
+      "contactNumber": "+1 555-1234",
+      "tags": [
+        "Fine Dining",
+        "Romantic",
+        "Reservation Required"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Burger Palace",
+      "address": "456 Elm Street, Los Angeles, CA",
+      "rating": 4.0,
+      "cuisine": "American",
+      "priceRange": "$",
+      "isOpen": false,
+      "contactNumber": "+1 555-5678",
+      "tags": [
+        "Fast Food",
+        "Family Friendly"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Sushi World",
+      "address": "789 Oak Avenue, San Francisco, CA",
+      "rating": 4.8,
+      "cuisine": "Japanese",
+      "priceRange": "$$$",
+      "isOpen": true,
+      "contactNumber": "+1 555-9876",
+      "tags": [
+        "Seafood",
+        "Authentic",
+        "High Quality"
+      ]
+    }
   ]
 }

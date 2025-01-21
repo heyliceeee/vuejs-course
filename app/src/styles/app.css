@@ -5,3 +5,11 @@
     align-items: center;
     height: 100vh; /* Ocupa a altura total do ecrã */
 }
+
+/* Centraliza horizontal e alinhada acima */
+.table-container {
+    margin: 16px; /* Adiciona margem ao redor da tabela */
+    padding: 16px; /* Espaçamento interno */
+    background-color: #ffffff; /* Fundo branco */
+    border-radius: 8px; /* Bordas arredondadas */
+}
