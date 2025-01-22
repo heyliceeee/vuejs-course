@@ -30,7 +30,6 @@ export default {
     setup() {
         // Definição das colunas
         const columns = ref([
-            {title: "ID", dataIndex: "id", key: "id"},
             {
                 title: "Name", dataIndex: "name", key: "name",
                 slots: {customRender: "name"}, // Slot para edição inline
@@ -62,6 +61,8 @@ export default {
         // Dados da tabela
         const data = ref([]);
         const editingId = ref(null); // Armazena o ID da linha em modo de edição
+        const deleteId = ref(null); // Armazena o ID do restaurante a ser apagado
+        const isModalVisible = ref(false); // Controla a visibilidade do modal
 
         // Função para definir a cor das tags
         const getTagColor = (tag) => {
@@ -79,7 +80,7 @@ export default {
             return tagColors[tag.toLowerCase()] || "default";
         };
 
-        // Função para buscar os restaurantes
+        // mostra os restaurantes
         const showRestaurants = async () => {
             try {
                 const response = await axios.get(`${baseUrl}/restaurant`);
@@ -93,6 +94,7 @@ export default {
             }
         };
 
+        // adiciona uma nova linha no topo da tabela
         const addNewRestaurant = () => {
             const newRestaurant = {
                 id: data.value.length + 1 + "", // Gera um novo ID sequencial
@@ -110,15 +112,15 @@ export default {
             editingId.value = newRestaurant.id; // Coloca a nova linha em modo de edição
         };
 
+        // cria ou edita um restaurante
         const saveRestaurant = async (record) => {
             try {
-                const response = await axios.get(`${baseUrl}/restaurant?id=${record.id}`);
+                const response = await axios.get(`${baseUrl}/restaurant?id=${record.id}`); //obter restaurante
 
+                //se o restaurante atual existe (ou seja, esta a editar um restaurante)
                 if (response.status === 200 && response.data.length === 1) {
 
-                    console.log("Restaurant getter:", response.data);
-
-                    // Restaurante existe: faz PUT
+                    // restaurante existe: faz PUT (edita)
                     const response1 = await axios.put(`${baseUrl}/restaurant/${response.data[0].id}`, {
                         name: record.name,
                         address: record.address,
@@ -130,13 +132,13 @@ export default {
                         tags: record.tags,
                     });
 
-                    if (response1.status === 200) {
+                    if (response1.status === 200) { // editou com sucesso
                         console.log("Restaurant updated:", response1.data);
                     } else {
                         console.error("Error updating restaurant");
                     }
-                } else {
-                    // Restaurante nao existe: faz POST
+                } else {  // se o restaurante atual NAO existe (ou seja, esta a criar um restaurante)
+                    // Restaurante nao existe: faz POST (cria)
                     await axios.post(`${baseUrl}/restaurant`, {
                         id: record.id,
                         name: record.name,
@@ -148,12 +150,11 @@ export default {
                         contactNumber: record.contactNumber,
                         tags: record.tags,
                     });
-
                     console.log("Restaurant created:", record);
                 }
             } catch (error) {
                 if (error.response && error.response.status === 404) {
-                    // Se o restaurante nao existir, faz POST
+                    // Se o restaurante nao existir, faz POST (cria)
                     await axios.post(`${baseUrl}/restaurant`, {
                         name: record.name,
                         address: record.address,
@@ -174,11 +175,43 @@ export default {
             }
         };
 
+        // esta a editar
         const startEditing = (record) => {
             editingId.value = record.id; // Define a linha em modo de edição
         };
 
-        return {columns, data, getTagColor, showRestaurants, addNewRestaurant, saveRestaurant, editingId, startEditing};
+        // elimina um restaurante
+        const deleteRestaurant = async () => {
+            if(deleteId.value != null){ //se foi selecionado algum restaurante para eliminar
+                try {
+                    await axios.delete(`${baseUrl}/restaurant/${deleteId.value}`);
+
+                    data.value = data.value.filter((restaurant) => restaurant.id !== deleteId.value); //refresh data
+                    console.log(`Restaurant with ID ${deleteId.value} deleted successfully.`);
+
+                } catch (error) {
+                    console.error(`Error deleting restaurant with ID ${deleteId.value}:`, error);
+                } finally {
+                    isModalVisible.value = false; // Fecha o modal
+                    deleteId.value = null;
+                }
+            }
+        };
+
+        // Funções para o modal
+        const confirmDelete = (id) => {
+            console.log("Delete confirmado");
+            deleteId.value = id;
+            isModalVisible.value = true;
+        };
+
+        const cancelDelete = () => {
+            console.log("Delete cancelado");
+            deleteId.value = null;
+            isModalVisible.value = false;
+        };
+
+        return {columns, data, getTagColor, showRestaurants, addNewRestaurant, saveRestaurant, editingId, startEditing, deleteRestaurant, confirmDelete, cancelDelete, isModalVisible};
     },
 
     mounted() {
@@ -315,13 +348,23 @@ export default {
                         <a v-else @click="startEditing(record)">
                             <EditOutlined style="color: black;"/>
                         </a>
-                        <a>
+                        <a @click="confirmDelete(record.id)">
                             <DeleteOutlined style="color: red;"/>
                         </a>
                     </a-space>
                 </template>
             </a-table>
         </div>
+
+        <!-- Modal de Confirmação -->
+        <a-modal
+            v-model:visible="isModalVisible"
+            title="Confirm Deletion"
+            @ok="deleteRestaurant"
+            @cancel="cancelDelete"
+        >
+            <p>Are you sure you want to delete this restaurant?</p>
+        </a-modal>
     </div>
 </template>
 
