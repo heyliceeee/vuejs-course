@@ -51,6 +51,156 @@
         "Authentic",
         "High Quality"
       ]
+    },
+    {
+      "id": "4",
+      "name": "Taco Fiesta",
+      "address": "12 Pepper Street, Austin, TX",
+      "rating": 4.2,
+      "cuisine": "Mexican",
+      "priceRange": "$$",
+      "isOpen": true,
+      "contactNumber": "+1 555-9012",
+      "tags": [
+        "Spicy",
+        "Family Friendly",
+        "Authentic"
+      ]
+    },
+    {
+      "id": "5",
+      "name": "Pasta Paradise",
+      "address": "34 Olive Avenue, Miami, FL",
+      "rating": 4.7,
+      "cuisine": "Italian",
+      "priceRange": "$$$",
+      "isOpen": false,
+      "contactNumber": "+1 555-3456",
+      "tags": [
+        "Fine Dining",
+        "Romantic",
+        "Reservation Required"
+      ]
+    },
+    {
+      "id": "6",
+      "name": "Grill Masters",
+      "address": "56 BBQ Lane, Kansas City, MO",
+      "rating": 4.3,
+      "cuisine": "American",
+      "priceRange": "$$",
+      "isOpen": true,
+      "contactNumber": "+1 555-6789",
+      "tags": [
+        "Barbecue",
+        "Casual",
+        "Family Friendly"
+      ]
+    },
+    {
+      "id": "7",
+      "name": "Dragon Wok",
+      "address": "78 Bamboo Road, Seattle, WA",
+      "rating": 4.6,
+      "cuisine": "Chinese",
+      "priceRange": "$$",
+      "isOpen": true,
+      "contactNumber": "+1 555-1237",
+      "tags": [
+        "Takeout",
+        "Spicy",
+        "Authentic"
+      ]
+    },
+    {
+      "id": "8",
+      "name": "Veggie Delight",
+      "address": "90 Green Street, Portland, OR",
+      "rating": 4.4,
+      "cuisine": "Vegetarian",
+      "priceRange": "$$",
+      "isOpen": false,
+      "contactNumber": "+1 555-5679",
+      "tags": [
+        "Healthy",
+        "Casual",
+        "Organic"
+      ]
+    },
+    {
+      "id": "9",
+      "name": "Steakhouse Supreme",
+      "address": "100 Prime Road, Dallas, TX",
+      "rating": 4.8,
+      "cuisine": "American",
+      "priceRange": "$$$$",
+      "isOpen": true,
+      "contactNumber": "+1 555-8901",
+      "tags": [
+        "Fine Dining",
+        "Romantic",
+        "Premium"
+      ]
+    },
+    {
+      "id": "10",
+      "name": "Ocean Breeze",
+      "address": "112 Seaside Avenue, San Diego, CA",
+      "rating": 4.9,
+      "cuisine": "Seafood",
+      "priceRange": "$$$$",
+      "isOpen": true,
+      "contactNumber": "+1 555-2345",
+      "tags": [
+        "Seafood",
+        "Ocean View",
+        "Luxury"
+      ]
+    },
+    {
+      "id": "11",
+      "name": "The Breakfast Spot",
+      "address": "120 Morning Lane, Chicago, IL",
+      "rating": 4.1,
+      "cuisine": "Breakfast",
+      "priceRange": "$",
+      "isOpen": true,
+      "contactNumber": "+1 555-6781",
+      "tags": [
+        "Casual",
+        "Family Friendly",
+        "All Day Breakfast"
+      ]
+    },
+    {
+      "id": "12",
+      "name": "Curry Palace",
+      "address": "150 Spice Avenue, Houston, TX",
+      "rating": 4.5,
+      "cuisine": "Indian",
+      "priceRange": "$$",
+      "isOpen": false,
+      "contactNumber": "+1 555-4567",
+      "tags": [
+        "Spicy",
+        "Authentic",
+        "Takeout"
+      ]
+    },
+    {
+      "id": "13",
+      "name": "BBQ Pit",
+      "address": "210 Smokey Road, Memphis, TN",
+      "rating": 4.2,
+      "cuisine": "American",
+      "priceRange": "$$",
+      "isOpen": true,
+      "contactNumber": "+1 555-7890",
+      "tags": [
+        "Barbecue",
+        "Casual",
+        "Family Friendly"
+      ]
     }
   ]
 }
