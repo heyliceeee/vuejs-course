@@ -11,11 +11,11 @@ export default {
         const router = useRouter(); // Navegação entre rotas
 
         // Definição dos itens do menu
-        const items = ref([
+        const menuItems = ref([
             {label: "Home", key: "Home", icon: HomeOutlined},
             {label: "Restaurants", key: "Restaurants", icon: RestOutlined},
-            {label: "Logout", key: "Logout", icon: LogoutOutlined},
         ]);
+        const logoutItem = ref({label: "", key: "Logout", icon: LogoutOutlined},);
 
         const current = ref(route.name); // Estado atual do menu
         const isModalVisible = ref(false); // Controla a visibilidade do modal
@@ -34,7 +34,7 @@ export default {
                 isModalVisible.value = true; // Exibe o modal para confirmação de logout
 
             } else {
-                router.push({ name: e.key }); // Navega para a rota correspondente
+                router.push({name: e.key}); // Navega para a rota correspondente
             }
         };
 
@@ -53,7 +53,7 @@ export default {
             isModalVisible.value = false;
         };
 
-        return {items, current, onClick, logo, isModalVisible, handleOk, handleCancel};
+        return {menuItems, logoutItem, current, onClick, logo, isModalVisible, handleOk, handleCancel};
     },
 };
 </script>
@@ -65,12 +65,19 @@ export default {
             <a-image class="header-logo" :src="logo" alt="Logo" :preview="{ visible: false }" width="35px"/>
         </div>
 
-        <a-menu class="header-menu" :selectedKeys="[current]" mode="horizontal" @click="onClick"
-                style="justify-content: flex-start; padding: 0; margin: 0; width: 100%;">
-            <!-- Itens do Menu -->
-            <a-menu-item v-for="item in items" :key="item.key">
+        <!-- Menu Principal -->
+        <a-menu class="header-menu" :selectedKeys="[current]" mode="horizontal" @click="onClick">
+            <a-menu-item v-for="item in menuItems" :key="item.key">
                 <component :is="item.icon"/>
                 {{ item.label }}
+            </a-menu-item>
+        </a-menu>
+
+        <!-- Logout -->
+        <a-menu class="logout-menu" mode="horizontal" :selectedKeys="[current]" @click="onClick">
+            <a-menu-item :key="logoutItem.key">
+                <component :is="logoutItem.icon"/>
+                {{ logoutItem.label }}
             </a-menu-item>
         </a-menu>
 

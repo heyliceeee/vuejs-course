@@ -360,6 +360,7 @@ export default {
         <a-modal
             v-model:visible="isModalVisible"
             title="Confirm Deletion"
+            ok-type="danger"
             @ok="deleteRestaurant"
             @cancel="cancelDelete"
         >
